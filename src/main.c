@@ -22,7 +22,7 @@ int yywrap() {
 }
 
 int main() {
-    char expression[256];
+    char expression[400];
     if (!fgets(expression, sizeof expression, stdin)) {
         return -1;
     }
@@ -33,13 +33,16 @@ int main() {
     yy_scan_string(expression);
     yyparse();
 
+    //var_table_print(&table);
+    //expression_print(result);
+
     size_t t = 0;
     size_t f = 0;
 
     var_id size = var_table_size(&table);
     for (state i = 0; i < (1 << size); i++){
         var_table_set_state(&table, i);
-        bool res = calculate(result);
+        uint8_t res = calculate(result);
         if (res) t++;
         else f++;
     }

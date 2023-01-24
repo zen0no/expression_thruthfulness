@@ -35,7 +35,7 @@ struct var_table_entry* var_table_var_for_name(struct var_table *table, name _na
 }
 
 static bool var_table_value_for_id(struct var_table *table, var_id _id){
-    return (table->_state) & (1 << _id);
+    return (table->_state) & (1 << _id) ;
 }
 
 
@@ -56,4 +56,8 @@ bool var_table_set_state(struct var_table *table, state _state){
 
 size_t var_table_size(struct var_table *table){
     return table->_next_id;
+}
+
+void var_table_print(struct var_table *table){
+    hash_map_print(table->varmap);
 }

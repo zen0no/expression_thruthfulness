@@ -105,3 +105,14 @@ bool hash_map_free(struct hash_map *hmap){
     return true;
 }
 
+
+void hash_map_print(struct hash_map *hmap){
+    printf("---------------------hash_map-----------------------\n");
+    for (size_t i = 0; i < hmap->size; i++){
+        printf("i: %zu; ", i);
+        for (struct hm_item *item = hmap->items[i]; item; item = item->next){
+            printf("hash: %"PRIu64" id: %d", item->key, item->value);
+        }
+        printf("\n");
+    }
+}

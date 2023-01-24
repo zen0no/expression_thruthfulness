@@ -6,9 +6,9 @@
 
 #define VAR_TABLE_CAPACITY 16
 
-typedef uint16_t var_id;
+typedef uint8_t var_id;
 typedef char* name;
-typedef uint16_t state;
+typedef uint64_t state;
 
 
 struct var_table{
@@ -29,5 +29,7 @@ struct var_table_entry* var_table_var_for_name(struct var_table *table, name _na
 
 bool var_table_entry_value(struct var_table_entry *entry);
 size_t var_table_size(struct var_table *table);
+
+void var_table_print(struct var_table *table);
 
 #endif

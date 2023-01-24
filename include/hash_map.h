@@ -25,4 +25,6 @@ bool hash_map_get(struct hash_map* hmap, name key, var_id *dist);
 
 bool hash_map_free(struct hash_map *hmap);
 
+void hash_map_print(struct hash_map *hmap);
+
 #endif
